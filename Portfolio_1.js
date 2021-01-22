@@ -1,28 +1,45 @@
-console.log("Hello World");
+const excuseParts = {
+    _intro : [],
+    _middle : [],
+    _outro : [],
 
-let excuseParts = {
-    let _introExcuse = [],
-    let _middleExcuse = [],
-    let _outroExcuse = [],
-
-    get introExcuse () {
-        return this._introExcuse;
+    get intro () {
+        return this._intro;
     },
-    set introExcuse (introExcuse) {
-        this._introExcuse = introExcuse
+    set intro (intro) {
+        this._intro = intro
     },
 
-    get middleExcuse () {
-        return this._middleExcuse;
+    get middle () {
+        return this._middle;
     },
-    set middleExcuse (middleExcuse) {
-        this._middleExcuse = middleExcuse
+    set middle (middle) {
+        this._middle = middle
     },
 
-    get outroExcuse () {
-        return this._outroExcuse;
+    get outro () {
+        return this._outro;
     },
-    set outroExcuse (outroExcuse) {
-        this._outroExcuse = outroExcuse
-    },
-}
+    set outro (outro) {
+        this._outro = outro
+    }
+};
+
+const randExcuse = () => {
+    let firstPart = excuseParts.intro[Math.floor(Math.random()*excuseParts.intro.length)];
+    let secondPart = excuseParts.middle[Math.floor(Math.random()*excuseParts.middle.length)];
+    let thirdPart = excuseParts.outro[Math.floor(Math.random()*excuseParts.outro.length)];
+
+    console.log(firstPart + secondPart + thirdPart);
+};
+
+excuseParts.intro = ["Sorry I am late, ", "I must appologize, "];
+console.log(excuseParts.intro);
+
+excuseParts.middle = ["my pants caught fire ", "all my shoes were stolen "];
+console.log(excuseParts.middle);
+
+excuseParts.outro = ["during my shower.", "as I had breakfast"];
+console.log(excuseParts.outro);
+
+randExcuse()
